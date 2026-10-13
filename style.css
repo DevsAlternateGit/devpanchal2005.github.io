@@ -167,15 +167,11 @@ strong {
   justify-self: start;
   display: flex;
   align-items: center;
-  gap: 10px;
   font-weight: 600;
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
 
-.brand img {
-  border-radius: 6px;
-}
 
 .nav {
   position: relative;
@@ -561,9 +557,7 @@ h4 {
   flex-direction: column;
   gap: clamp(16px, 3vh, 28px);
   padding: clamp(22px, 4vh, 36px) 28px;
-  background:
-    radial-gradient(circle at 1px 1px, var(--line-strong) 1px, transparent 0) 0 0 / 18px 18px,
-    var(--surface-2);
+  background: var(--surface-2);
   border-right: 1px solid var(--line);
 }
 
@@ -846,9 +840,7 @@ h4 {
   justify-content: center;
   align-items: stretch;
   padding: 28px;
-  background:
-    radial-gradient(circle at 1px 1px, var(--line-strong) 1px, transparent 0) 0 0 / 18px 18px,
-    var(--surface-2);
+  background: var(--surface-2);
 }
 
 .flow-label {
@@ -1287,7 +1279,133 @@ h4 {
   opacity: 0.6;
 }
 
+/* ---------- Certificates ---------- */
+
+.cert-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) 1fr;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.cert-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(22, 22, 26, 0.04), 0 20px 48px -12px rgba(22, 22, 26, 0.2);
+}
+
+/* Left visual panel — mirrors .visual.flow */
+.cert-visual {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px;
+  background: var(--surface-2);
+  border-right: 1px solid var(--line);
+  gap: 24px;
+}
+
+/* Notion logo tile */
+.cert-notion-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.cert-notion-n {
+  width: 40px;
+  height: 44px;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.cert-card:hover .cert-notion-n {
+  transform: scale(1.1);
+}
+
+.cert-notion-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+/* Stats row at the bottom of the visual panel */
+.cert-stat-row {
+  display: flex;
+  gap: 20px;
+}
+
+.cert-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cert-stat-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--text);
+}
+
+.cert-stat-desc {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+}
+
+/* Right body panel */
+.cert-body {
+  padding: clamp(24px, 3vw, 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.cert-label {
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.cert-body h3 {
+  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.cert-desc {
+  color: var(--body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 46ch;
+}
+
+/* CTA button — same .btn + .btn-sm styles, just need gap */
+.cert-cta {
+  gap: 7px;
+  margin-top: 6px;
+  width: fit-content;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.cert-card:hover .cert-cta {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
 /* ---------- Contact (fills one screen, footer included) ---------- */
+
 
 .contact-page {
   --contact-pad: clamp(16px, 4vh, 48px);
